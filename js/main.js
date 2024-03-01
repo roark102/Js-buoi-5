@@ -97,3 +97,44 @@ function tinhTienDien() {
 getEle("handleTienDien").onclick = function () {
   tinhTienDien();
 };
+
+// Bai 3: Tinh thue thu nhap ca nhan
+
+function tinhTienThue() {
+  var hoTen = getEle("hoTen").value;
+  var income = +getEle("income").value;
+  var nguoiPhuThuoc = getEle("nguoiPhuThuoc").value;
+  const DUOI60 = 0.05;
+  const TREN60DEN120 = 0.1;
+  const TREN120DEN210 = 0.15;
+  const TREN210DEN384 = 0.2;
+  const TREN384DEN624 = 0.25;
+  const TREN624DEN960 = 0.3;
+  const TREN960 = 0.35;
+
+  var thuNhapChiuThue = income - 4000000 - nguoiPhuThuoc * 1600000;
+  var thueThuNhap;
+  if (thuNhapChiuThue <= 60000000) {
+    thueThuNhap = thuNhapChiuThue * DUOI60;
+  } else if (thuNhapChiuThue <= 120000000) {
+    thueThuNhap = thuNhapChiuThue * TREN60DEN120;
+  } else if (thuNhapChiuThue <= 210000000) {
+    thueThuNhap = thuNhapChiuThue * TREN120DEN210;
+  } else if (thuNhapChiuThue <= 384000000) {
+    thueThuNhap = thuNhapChiuThue * TREN210DEN384;
+  } else if (thuNhapChiuThue <= 624000000) {
+    thueThuNhap = thuNhapChiuThue * TREN384DEN624;
+  } else if (thuNhapChiuThue <= 960000000) {
+    thueThuNhap = thuNhapChiuThue * TREN624DEN960;
+  } else {
+    thueThuNhap = thuNhapChiuThue * TREN960;
+  }
+  getEle(
+    "result3"
+  ).innerHTML = `Họ tên: ${hoTen};Tiền thuế thu nhập cá nhân: ${new Intl.NumberFormat(
+    "vn-VN"
+  ).format(thueThuNhap)} VND`;
+}
+getEle("handleTinhThue").onclick = function () {
+  tinhTienThue();
+};
