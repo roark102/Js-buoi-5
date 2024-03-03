@@ -86,7 +86,7 @@
       <button class="btn btn-success" id="ketQua">Kết Quả</button>
       <div id="result1"></div>
     </div>
-    <div class="bai 2 container text-center mt-5">
+    <div class="bai2 container text-center mt-5">
       <h2 class="text-danger">Bài tập 2: Tính tiền điện</h2>
       <div class="form-group">
         <label for=""></label>
@@ -113,7 +113,7 @@
       </button>
       <div id="result2"></div>
     </div>
-    <div class="bai 3 container text-center mt-5">
+    <div class="bai3 container text-center mt-5">
       <h2 class="text-danger">Bài tập 3: Tính tiền thuế</h2>
       <div class="form-group">
         <label for=""></label>
@@ -149,6 +149,57 @@
         Tính tiền điện
       </button>
       <div id="result3"></div>
+    </div>
+    <div class="bai4 container text-center mt-5">
+      <h2 class="text-danger">Bài tập 4: Tính Tiền Cáp</h2>
+
+      <div class="form-group">
+        <label for=""></label>
+        <select
+          class="form-control"
+          name=""
+          id="khachHang"
+          onchange="showKetNoi()"
+        >
+          <option>Chọn loại khách hàng</option>
+          <option value="nhaDan">Nhà Dân</option>
+          <option value="doanhNghiep">Doanh Nghiệp</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for=""></label>
+        <input
+          type="text"
+          name=""
+          id="maKhachHang"
+          class="form-control"
+          placeholder="Nhập mã khách hàng"
+        />
+      </div>
+      <div class="form-group">
+        <label for=""></label>
+        <input
+          type="text"
+          name=""
+          id="soKenh"
+          class="form-control"
+          placeholder="Số kênh cao cấp"
+        />
+      </div>
+      <div class="form-group d-none" id="ketNoi">
+        <label for=""></label>
+        <input
+          type="text"
+          name=""
+          id="soKetNoi"
+          class="form-control"
+          placeholder="Số kết nối"
+        />
+      </div>
+      <button class="btn btn-success" id="handleTinhTienCap">
+        Tính tiền cáp
+      </button>
+      <div id="result4"></div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

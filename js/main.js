@@ -138,3 +138,54 @@ function tinhTienThue() {
 getEle("handleTinhThue").onclick = function () {
   tinhTienThue();
 };
+
+// Bai 4:
+const PHIXULYNHADAN = 4.5;
+const PHIDICHVUNHADAN = 20.5;
+const PHIXULYDOANHNGHIEP = 15;
+const THUEKENHNHADAN = 7.5;
+const THUEKENHDOANHNGHIEP = 50;
+
+function showKetNoi() {
+  var khachHang = getEle("khachHang").value;
+  var ketNoi = getEle("ketNoi");
+  if (khachHang == "doanhNghiep") {
+    ketNoi.classList.remove("d-none");
+  }
+}
+
+function tinhTienCap() {
+  var maKhachHang = getEle("maKhachHang").value;
+  var soKenh = +getEle("soKenh").value;
+  var khachHang = getEle("khachHang").value;
+  var PHIDICHVUDOANHNGHIEP, hoaDon;
+  var soKetNoi = +getEle("soKetNoi").value;
+
+  switch (khachHang) {
+    case "nhaDan":
+      hoaDon = PHIXULYNHADAN + PHIDICHVUNHADAN + THUEKENHNHADAN * soKenh;
+
+      break;
+    case "doanhNghiep":
+      if (soKetNoi <= 10) {
+        PHIDICHVUDOANHNGHIEP = 75;
+      } else {
+        PHIDICHVUDOANHNGHIEP = 75 + 5 * (soKetNoi - 10);
+      }
+      hoaDon =
+        PHIXULYDOANHNGHIEP +
+        PHIDICHVUDOANHNGHIEP +
+        soKenh * THUEKENHDOANHNGHIEP;
+      break;
+
+    default:
+      break;
+  }
+  getEle(
+    "result4"
+  ).innerHTML = `Mã khách hàng: ${maKhachHang}, Tiền cáp: $${hoaDon}`;
+}
+
+getEle("handleTinhTienCap").onclick = function () {
+  tinhTienCap();
+};
